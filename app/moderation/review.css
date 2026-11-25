@@ -1,0 +1,20 @@
+main.review-page {min-height:100vh;padding:clamp(1rem,4vw,4rem);font-family:var(--font-body),system-ui,sans-serif;background:#e5eaf1;color:#152334;line-height:1.55;}
+.review-page article {max-width:46rem;margin:auto;padding:clamp(1.1rem,4vw,3rem);background:#fbfcff;border:1px solid #8799b3;border-radius:1.4rem;}
+.review-page h1 {margin:.9rem 0;font-size:clamp(2.2rem,6vw,3.7rem);line-height:1.05;letter-spacing:-.055em;}
+.review-page h2 {font-size:1.35rem;margin-bottom:.5rem;}
+.review-page section {margin-top:1.5rem;border-top:1px solid #c0cbd9;padding-top:1.15rem;}
+.review-page p {margin:.5rem 0;}
+.review-page a {color:#174c76;text-decoration:underline;}
+.review-page form,.review-page label,.review-record {display:grid;gap:.5rem;}
+.review-page textarea {box-sizing:border-box;max-width:100%;resize:vertical;border:1px solid #8394a7;border-radius:.55rem;background:white;color:#152334;padding:.7rem;font:inherit;}
+.review-page button {justify-self:start;min-height:40px;margin:.3rem .4rem .3rem 0;border:1px solid #647788;border-radius:.6rem;background:#21394e;padding:.45rem .85rem;color:white;cursor:pointer;font:inherit;}
+.review-page small {font-size:.88rem;color:#495d72;}
+.review-record {padding:.8rem 0;border-bottom:1px solid #d5dee6;overflow-wrap:anywhere;}
+.review-page button:disabled {opacity:.55;}
+
+.recovery-status .account-score {display:flex;gap:1rem;align-items:center;}
+.recovery-status .score-bulb {display:grid;place-items:center;width:3rem;height:3rem;border:1px solid #92413d;border-radius:50%;background:radial-gradient(at 30% 20%,#fff6f1,#e48b81 40%,#b13c38);color:#452321;}
+.recovery-status .account-symbol,.recovery-status .account-symbol svg {display:block;width:1.6rem;height:1.6rem;}
+.recovery-status details {margin-top:1rem;}
+.recovery-status summary {cursor:pointer;font-weight:700;}
+.recovery-status td,.recovery-status th {padding:.5rem;text-align:left;vertical-align:top;}

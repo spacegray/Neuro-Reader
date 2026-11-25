@@ -1,0 +1,95 @@
+.research-stats .research-notes h3 {margin:0;font-size:1.03rem;}
+.research-stats .research-notes .fact-toggle {text-align:start;}
+.research-stats .research-notes details {margin:.4rem 0;}
+.research-stats .research-notes ul {list-style:disc;padding-inline-start:1.2rem;}
+.research-stats .research-notes li {margin:.4rem 0;line-height:1.6;}
+.research-stats .research-close {
+  display:block; margin-top:.7rem; padding:.35rem 0; cursor:pointer;
+  color:var(--plate-accent,var(--cyan));font:inherit;font-weight:700;
+  text-decoration:underline;text-underline-offset:.2em;
+}
+.research-stats button:focus-visible,.research-stats summary:focus-visible {outline:2px solid currentColor;outline-offset:3px;}
+@media (prefers-reduced-motion: no-preference) {
+  main:not([data-profile="paper"],[data-profile="graphite"]) .research-stats .fact-reveal {
+    transition:grid-template-rows .65s cubic-bezier(.22,.61,.36,1),opacity .45s ease;
+  }
+}
+
+@media (min-width: 701px) {
+  .research-stats .research-notes[data-both-open="true"] {align-items:stretch;}
+}
+
+.research-stats .study-figure {
+  margin:1rem 0 .35rem;padding:.9rem 0 .7rem;
+  border-block:1px solid var(--line);font-variant-numeric:tabular-nums;
+}
+.study-figure figcaption {
+  margin-bottom:.7rem;font-size:.94rem;font-weight:720;line-height:1.35;
+  color:var(--ink);text-wrap:balance;
+}
+.study-figure .adult-frequency {
+  display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:clamp(2px,.3vw,4px);
+  width:100%;max-width:16rem;margin:.85rem 0;
+}
+.frequency-dot {display:block;aspect-ratio:1;border-radius:50%;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);}
+.frequency-dot.filled,.site-rate-track i,.confidence-range,.confidence-point {background:var(--plate-accent);}
+.frequency-dot.filled {border-color:var(--plate-accent);}
+.site-rate-list {display:grid;gap:.35rem;}
+.site-rate > div:first-child {display:flex;align-items:baseline;justify-content:space-between;font-size:.82rem;gap:.5rem;}
+.site-rate-track {border-bottom:1px solid var(--line);height:.42rem;position:relative;}
+.site-rate-track i {display:block;height:100%;border-radius:0 .5rem .5rem 0;border:1px solid var(--plate-accent);}
+.study-axis {display:flex;justify-content:space-between;gap:.35rem;font-size:.73rem;color:var(--soft-text,var(--input-text));}
+.confidence-plot {padding:.55rem .25rem .2rem;}
+.confidence-axis {position:relative;height:1.3rem;display:flex;align-items:center;}
+.confidence-axis::before {content:"";position:absolute;inset-inline:0;border-top:1px solid currentColor;opacity:.42;}
+.confidence-range {position:absolute;height:.36rem;border:1px solid var(--plate-accent);}
+.confidence-range::before,.confidence-range::after {
+  content:"";height:.9rem;width:2px;position:absolute;top:50%;transform:translateY(-50%);background:var(--plate-accent);
+}
+.confidence-range::before {left:0;}.confidence-range::after {right:0;}
+.confidence-point {
+  position:absolute;width:.8rem;height:.8rem;border-radius:50%;transform:translateX(-50%);
+  border:2px solid var(--panel);outline:1.5px solid var(--plate-accent);
+}
+.research-stats .study-reading {font-size:.87rem;line-height:1.5;margin:.6rem 0;}
+.study-source {font-size:.82rem;font-weight:650;color:var(--plate-accent);}
+.research-stats .study-gaps {margin:1rem 0;padding:.75rem 1rem;border-inline-start:3px solid var(--cyan);background:color-mix(in srgb,var(--panel) 75%,transparent);}
+.study-gaps summary {font-weight:700;cursor:pointer;color:var(--ink);}
+.study-gaps ul {list-style:disc;padding-inline-start:1.2rem;max-width:80ch;}
+.study-gaps li {margin:.6rem 0;line-height:1.55;}
+@media screen and (prefers-reduced-motion:no-preference) {
+  .fact-card[data-chart-entered=true] .frequency-dot {
+    animation:research-dot-arrive .3s ease-out both;
+  }
+  .fact-card[data-chart-entered=true] .frequency-dot:nth-child(n+21) {animation-delay:80ms;}
+  .fact-card[data-chart-entered=true] .frequency-dot:nth-child(n+41) {animation-delay:160ms;}
+  .fact-card[data-chart-entered=true] .frequency-dot:nth-child(n+61) {animation-delay:240ms;}
+  .fact-card[data-chart-entered=true] .frequency-dot:nth-child(n+81) {animation-delay:320ms;}
+  .fact-card[data-chart-entered=true] .site-rate-track i {
+    transform-origin:left;animation:research-bar-draw .7s cubic-bezier(.22,.61,.36,1) both;
+  }
+  .fact-card[data-chart-entered=true] .site-rate:nth-child(2) i {animation-delay:80ms;}
+  .fact-card[data-chart-entered=true] .site-rate:nth-child(3) i {animation-delay:160ms;}
+  .fact-card[data-chart-entered=true] .confidence-range {
+    transform-origin:center;animation:research-bar-draw .8s cubic-bezier(.22,.61,.36,1) both;
+  }
+  @keyframes research-dot-arrive {from {opacity:0;transform:scale(.4);}to {opacity:1;transform:scale(1);}}
+  @keyframes research-bar-draw {from {transform:scaleX(0);}to {transform:scaleX(1);}}
+}
+@media print {
+  .research-stats,.research-stats .fact-card,.research-stats .research-notes article {
+    background:white!important;color:#111!important;box-shadow:none!important;
+  }
+  .research-stats {--ink:#111!important;--input-text:#111!important;--cyan:#222!important;--companion:#222!important;--soft-text:#333!important;--line:#aaa!important;--panel:#fff!important;}
+  .research-stats .fact-card {--plate-accent:#333!important;}
+  .research-stats .study-figure {break-inside:avoid;}
+  .research-stats .study-source > span {display:none;}
+  .research-stats .study-source::after {content:" (" attr(href) ")";overflow-wrap:anywhere;}
+  .research-stats .chart-marks,.research-stats .confidence-point {print-color-adjust:exact;-webkit-print-color-adjust:exact;animation:none!important;}
+  .research-stats .stat-grid,.research-stats .research-notes {display:block;}
+  .research-stats .stat-grid article,.research-stats .research-notes article {break-inside:avoid;margin-block:.65rem;}
+  .research-stats .fact-reveal,.research-stats .fact-reveal > div {display:block;opacity:1;overflow:visible;}
+  .research-stats .fact-toggle,.research-stats .research-close {display:none;}
+  .research-stats .research-notes h3 .fact-toggle {display:block;}
+  .research-stats details::details-content {content-visibility:visible;display:block;}
+}

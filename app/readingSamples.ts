@@ -1,0 +1,20 @@
+export const sampleShelf=[
+  {category:"Stories",topic:"Small mysteries",title:"The third footprint",text:"Two muddy boots had left prints across the kitchen floor. Between them ran a third, perfectly round mark. Mina followed the trail to the porch, where her grandfather was cleaning his walking stick. At its tip, balanced like a tiny hat, sat the rubber foot from yesterday’s missing chair."},
+  {category:"Stories",topic:"Small mysteries",title:"Return slot",text:"Every Friday someone returned a leaf through the library book slot. This week the leaf came with a wobbly drawing of a tree. Ana pinned both to the noticeboard. By closing time there were six more drawings beneath them, and a small boy on tiptoe, trying to see his exhibition."},
+  {category:"Stories",topic:"Adventures",title:"A boat for a beetle",text:"Rain had made an island of the stepping stone. On it, a beetle waved its feelers above the rising puddle. Kit tried a leaf, then a curled strip of bark. The beetle climbed aboard the bark, rode halfway across, and flew the rest of the way under its own power."},
+  {category:"Stories",topic:"Adventures",title:"The high shelf",text:"The best view in the workshop belonged to a wooden giraffe waiting for paint. From its high shelf it could see the kite frames, the open window, and the red tail slipping loose from its spool. Lila followed the ribbon all the way outside. The wind had started her kite without her."},
+  {category:"Poetry",topic:"Nature",title:"After rain",text:"A bead of rain hangs from the gate,\nround enough to hold a tree.\nI bend to see the branches move.\nThe sparrow lands. The tree falls free."},
+  {category:"Poetry",topic:"Nature",title:"Shore pocket",text:"I took a pocket to the shore\nand filled it up with bits of blue.\nAt home I found one piece of glass,\ntwo shells, and sand inside my shoe."},
+  {category:"Poetry",topic:"Everyday sounds",title:"Kitchen band",text:"One spoon taps the mixing bowl.\nTwo heels drum against a chair.\nThe kettle holds its highest note\nwhile toast leaps up to catch the air."},
+  {category:"Poetry",topic:"Everyday sounds",title:"Evening windows",text:"A window clicks. A bicycle ticks.\nThe baker draws the blind.\nA tune escapes an upstairs room\nand follows close behind."},
+  {category:"History",topic:"On the move",title:"Letters at a gallop",text:"A letter on the Pony Express traveled much farther than any one horse. Riders changed horses at relay stations along the route. Imagine following a single envelope through those changes. Its journey depended as much on the people tending fresh horses as on the rider carrying the mail."},
+  {category:"History",topic:"On the move",title:"Where the rails met",text:"In May 1869, two railroads met at Promontory Summit in Utah. One crew had approached from the west and the other from the east. Think of the last small stretch of track. Laying it joined journeys that, the day before, had ended on opposite sides of a gap."},
+  {category:"History",topic:"Written clues",title:"One message, three scripts",text:"The Rosetta Stone carries a decree written three ways. One version uses Greek letters. The other two use Egyptian scripts called hieroglyphic and Demotic. Scholars who could already read Greek had a place to begin. They could compare passages carved into the very same stone."},
+  {category:"History",topic:"Written clues",title:"Reading a broken stone",text:"A broken object can still tell a surprisingly full story. The Rosetta Stone has lost parts of its original inscription, yet its surviving words helped readers make sense of ancient Egyptian writing. At a museum, try looking first at where an object ends. What clues might continue beyond that edge?"}
+];
+export const sampleCategories=[...new Set(sampleShelf.map(s=>s.category))];
+export function nextSample(category:string,topic:string,previous:string) {
+  const pool=sampleShelf.filter(s=>(!category || s.category===category) && (!topic || s.topic===topic));
+  if(!pool.length)return undefined;
+  return pool[(pool.findIndex(s=>s.text===previous)+1)%pool.length];
+}
